@@ -140,7 +140,6 @@ async function createLicense() {
 
     const data = await res.json();
 
-    // GARANTİ: key ve expires var mı?
     if (!data.key || !data.expires) {
       throw new Error('Lisans verisi eksik');
     }
@@ -156,7 +155,7 @@ async function createLicense() {
         </small>
       </div>`;
     
-    loadLicenses(); // Listeyi yenile
+    loadLicenses(); // Yenile
   } catch (e) {
     document.getElementById('newKey').innerHTML = `
       <div class="alert alert-danger p-3 mt-3">
@@ -206,7 +205,7 @@ async function loadLicenses() {
 
 // İlk yükleme
 loadLicenses();
-setInterval(loadLicenses, 15000); // 15 saniyede bir yenile
+setInterval(loadLicenses, 5000); // 5 saniyede bir yenile
 </script>
 
 <!-- Animasyon için -->
